@@ -1,0 +1,267 @@
+body {
+  position: relative;
+}
+
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("https://wallpapercave.com/wp/wp8984730.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.board {
+  background-color: rgba(211, 211, 211, 0.9);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+
+  height: 606px;
+  width: 606px;
+  border: 3px solid white;
+  border-radius: 10px;
+}
+
+.square {
+  user-select: none;
+  height: 200px;
+  width: 200px;
+  border: 1px solid white;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: maroon;
+}
+
+.square:hover {
+  background-color: rgb(220, 220, 220);
+}
+
+#menu {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.button {
+  width: 150px;
+  height: 50px;
+  margin-bottom: 10px;
+  border: 2px solid #333;
+  border-radius: 25px;
+  background-color: #fff;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+#play {
+  animation: bounce 1s infinite;
+}
+
+#stats {
+  animation: shake 1s infinite;
+}
+
+#settings {
+  animation: pulse 1s infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: block;
+  z-index: 0;
+}
+
+.boardContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.stats {
+  color: rgb(109, 214, 255);
+  font-size: 2rem;
+}
+
+.darkTable {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  border: 2px solid #000000;
+  background-color: #4a4a4a;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+td,
+th {
+  border: 1px solid #b3b3b3;
+  padding: 3px 2px;
+  font-size: 1.5rem;
+  color: #e6e6e6;
+}
+
+th {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.darkTable thead {
+  background: #000000;
+  border-bottom: 3px solid #000000;
+}
+
+.restartBtn {
+  background-color: maroon;
+  color: white;
+}
+
+.modal {
+  position: absolute;
+  display: none;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 1rem;
+  background-color: #808080;
+  height: 70%;
+  width: 50%;
+  border: 10px solid #888;
+}
+
+.close {
+  margin-right: 0.5rem;
+  color: #aaa;
+  float: right;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+.slider-container {
+  padding-left: 1rem;
+}
+
+/* Style for the label element */
+.slider {
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 34px;
+  position: relative;
+}
+
+/* Style for the slider knob */
+.slider::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: white;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+
+/* Style for the checked state of the input element */
+.checkbox:checked + .slider::after {
+  left: calc(100% - 32px);
+  background-color: yellow;
+}
+
+.checkbox {
+  display: none;
+}

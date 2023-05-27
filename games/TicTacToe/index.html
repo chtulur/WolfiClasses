@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="tictactoe.js" defer></script>
+    <title>TicTacToe</title>
+  </head>
+  <body>
+    <div class="game">
+      <div id="menu">
+        <div class="button" id="play">Play</div>
+        <div class="button" id="stats">Stats</div>
+        <div class="button" id="settings">Settings</div>
+      </div>
+
+      <div>
+        <div id="overlay"></div>
+        <div class="boardContainer">
+          <div class="stats"></div>
+          <div class="board"></div>
+          <button class="restartBtn">Restart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="settingsModal modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h1>Against Ai?</h1>
+        <div class="slider-container">
+          <input type="checkbox" id="slider" class="checkbox">
+          <label for="slider" class="slider"></label>
+        </div>
+      </div>
+    </div>
+
+    <div class="statsModal modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <table class="darkTable">
+          <thead>
+            <tr>
+              <th class="statsTableHead">Player Victories</th>
+              <th class="statsTableHead">Ai Victories</th>
+              <th class="statsTableHead">Draws</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="pVictories gameStats"></td>
+              <td class="aVictories gameStats"></td>
+              <td class="draws gameStats"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>
