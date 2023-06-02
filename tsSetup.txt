@@ -1,0 +1,65 @@
+Typescript setup steps
+	npm init
+	npm install --save-dev typescript
+	tsconfig.json:
+	$ npx tsc --init
+{
+  "compilerOptions": {
+    "target": "es2022",
+    "module": "es2022",
+    "outDir": "./dist",
+    "removeComments": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true
+  }
+}
+
+	dist folder
+	src folder
+		|___index.ts 
+
+	compile: $ npx tsc
+
+Either:
+	index.html and attach JS file
+OR:
+	run it using NodeJS: $ node dist/index.js
+
+
+To make compilation automatic on save add these two lines to
+package.json scripts
+ 	"build": "tsc",
+       "start": "ts-node-dev --respawn ./src/index.ts",
+       "watch": "nodemon --exec \"npm run build -- --outDir dist\" --watch ./src/index.ts"
+
+Start this
+$ npm install --save-dev ts-node
+$ npm install --save-dev ts-node-dev
+$ npm install --save-dev nodemon
+$ npm run start (whenever you save, code is reexecuted)
+$ npm run watch (whenever you save, js is recompiled
+
+The npm run start is good for Node development
+
+
+
+Module System JS:
+
+If you try to use it and you don't have a bundler, make sure you add .js 
+at the end of imports, otherwise you are going to slowly lose parts of your 
+soul trying to figure out for HOURS why things don't fucking work because
+ every fucking tutorial told you that .js can be omitted since Node should 
+be able to figure this shit out. Just stay safe and add it. FUCK
+	
+
+	
